@@ -1,18 +1,16 @@
-<div class="article-container">
+<button (click)="togglePublication()">
+  {{article.isPublished ? 'Masquer l\'article' : 'Afficher l\'article' }}
+</button>
+
+<div *ngIf="article.isPublished" class="article-container">
     <h1 class="title-article">
-      Les Meilleures Pratiques pour Gérer les Données Sensibles dans une Application
-      Web
+      {{article.title}}
     </h1>
+    <span class="title-article">{{article.author}}</span>
+    <img [src]="article.image" [alt]="article">
     <p class="text-article">
-     <strong>1. Utiliser des Variables d'Environnement :</strong><br/><br/>
-      Les configurations sensibles, telles que les clés API ou les informations de connexion aux bases de données, ne doivent jamais être hardcodées dans le code source. 
-      <br/> <br/>
-     <strong>2. Crypter les Données Sensibles :</strong><br/><br/>Lorsque vous stockez des données sensibles,
-      telles que des mots de passe, elles ne doivent jamais être enregistrées en
-      clair. Utilisez un algorithme de hachage sécurisé comme bcrypt pour crypter
-      les mots de passe avant de les enregistrer dans votre base de données. <br/> <br/> <strong>3.
-      Utiliser HTTPS :</strong><br/><br/>La sécurité des données en transit est aussi importante que
-      celle des données stockées. Assurez-vous que votre application utilise HTTPS
-      pour toutes les communications client-serveur.
+     {{article.content}}
     </p>
+    <span>{{article.comment}}</span>
+    <input [(ngModel)]="article.comment" type="text" placeholder="Ecrivez un commentaire">
 </div>
