@@ -1,2 +1,8 @@
-<app-article></app-article>
-<app-bonjour></app-bonjour>
+@for (let article of articles)
+  @if (article.isPublished)
+    <div class="article">
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.content }}</p>
+      <img [src]="article.image" alt="{{ article.title }}">
+      <p>Auteur: {{ article.author }} | Likes: {{ article.likes }}</p>
+    </div>
