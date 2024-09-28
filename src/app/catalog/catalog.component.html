@@ -1,0 +1,24 @@
+<div class="header-page">
+
+<h1 class="title-header-catalog">Ceci est le catalogue de notre magasin : </h1>
+
+</div>
+
+<div class="catalog-container">
+
+    @for (product of products; track product.id) {
+        
+        <div class="article-card">
+            <h1 class="title-product"> {{product.name}} </h1>
+            <p class="price-product"> {{product.price}} </p>
+            @if (product.promo.hasPromo) {
+                <p [ngClass]="{'green': parsePromotionValue(product.promo.value) > -20, 'black': parsePromotionValue(product.promo.value) <= -20}" class="promo-product">
+                    {{ product.promo.getDisplayValue() }}
+                </p>                
+                <p class="promo-product"> Temps restants avant la fin de la promotion : {{product.promo.getRemainingTime()}}</p>
+            } @else {
+                <p>Pas de Promotion actuellement</p>
+            }
+        </div>
+    }
+</div>

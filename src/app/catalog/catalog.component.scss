@@ -1,0 +1,48 @@
+/* CSS for the product catalog page */
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-page {
+    background-color: #f7e9f3;
+    padding: 20px 40px;
+    border-bottom: 2px solid #ebd2e0;
+    text-align: center;
+  }
+  
+  .title-header-catalog {
+    font-size: 2rem;
+    color: #c44e77;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .article-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0
+  }  
