@@ -77,7 +77,13 @@ export class CatalogComponent {
       new Product('11', 'Chaussures', '59,99€', new Promo(true, "-35", '2024-10-15')),
       new Product('12', 'Casquette', '9,99€', new Promo(true, "-10", '2024-10-30')),
       new Product('13', 'Écharpe', '12,99€', new Promo(false, null, '2024-10-04')), 
-      new Product('14', 'Chapeau', '19,99€', new Promo(true, "-20", '2024-10-25'))
+      new Product('14', 'Chapeau', '19,99€', new Promo(true, "-20", '2024-10-25')),
+      new Product('15', 'Jean', '49,99€', new Promo(false, null, '2024-10-10')),
+      new Product('16', 'Baskets', '79,99€', new Promo(true, '-15', '2024-10-20')),
+      new Product('17', 'Montre', '99,99€', new Promo(true, '-50', '2024-10-01')),
+      new Product('18', 'Ceinture', '29,99€', new Promo(false, null, '2024-10-15')),
+      new Product('19', 'Sacs à main', '89,99€', new Promo(true, '-10', '2024-10-25')),
+      new Product('20', 'Vêtements de sport', '69,99€', new Promo(true, '-20', '2024-10-30'))
     ];
   }
   parsePromotionValue(value: string | null): number {
