@@ -1,5 +1,3 @@
-/* CSS for the product catalog page */
-
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f5f5f5;
@@ -46,3 +44,48 @@ body {
     transform: translateY(-5px);
     box-shadow: 0
   }  
+
+  .green {
+    color: green;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .black {
+    color: black;
+  }
+  
+  .button-add {
+    background-color: #36d55b; 
+    color: white;              
+    font-size: 16px;          
+    padding: 10px 20px;        
+    border: none;          
+    border-radius: 5px;     
+    cursor: pointer;           
+    transition: background-color 0.3s, transform 0.3s; 
+    display: inline-flex;      
+    align-items: center;       
+  }
+  
+  .button-add:hover {
+    background-color: #218838; 
+    transform: scale(1.05);   
+  }
+  
+  .button-add:active {
+    background-color: #1e7e34; 
+    transform: scale(0.98);   
+  }
+  
+  .button-add:focus {
+    outline: none;           
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); 
+  }
+  
+  
+  .button-add::before {
+    content: '🛒'; 
+    margin-right: 8px;
+  }
+  

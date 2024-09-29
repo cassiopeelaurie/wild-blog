@@ -87,7 +87,21 @@ export class CatalogComponent {
     ];
   }
   parsePromotionValue(value: string | null): number {
-    // Return 0 if the value is null or empty; otherwise, parse the integer
+    // Ne pas enlever le signe '-' pour garder les valeurs négatives
     return value ? parseInt(value.replace('%', ''), 10) : 0;
   }
+  
+  
+  noProductsMessage(): string {
+    if (!this.products || this.products.length === 0) {
+      return "Aucun produit disponible, mais ça revient bientôt";
+    }
+    return '';
+  }  
+  noPromoMessage(product: Product): string {
+    if (!product.promo.hasPromo) {
+      return "Les promos reviennent bientôt ma loutre🦦";
+    }
+    return '';
+  }  
 }
