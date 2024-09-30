@@ -1,5 +1,8 @@
 <div class="header-page">
 <h1 class="title-header-catalog">Ceci est le catalogue de notre magasin : </h1>
+<nav>
+    <a routerLink="/cart">Mon Panier</a>
+  </nav>
 </div>
 
 <div class="catalog-container">
@@ -9,6 +12,9 @@
         <div class="article-card">
             <h1 class="title-product"> {{product.name}} </h1>
             <p class="price-product"> {{product.price}} </p>
+            <a [routerLink]="['/articles', product.id]" class="details-link">
+                Voir Détails
+              </a>
             @if (product.promo.hasPromo) {
                 <p [ngClass]="{'green': parsePromotionValue(product.promo.value) < -20, 'black': parsePromotionValue(product.promo.value) >= -20}" class="promo-product">
                     {{ product.promo.getDisplayValue() }}
@@ -17,7 +23,7 @@
             } @else {
                 <p>{{ noPromoMessage(product) }}</p>
             }
-            <button class="button-add">Ajouter au panier</button>
+            <button (click)="addToCart(product)" class="button-add">Ajouter au panier</button>
         </div>
     }
 </div>

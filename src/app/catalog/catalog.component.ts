@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
+import { RouterLink, RouterModule } from '@angular/router';
+import { routes } from '../app.routes';
 
 class Promo {
   hasPromo: boolean;
@@ -38,31 +41,31 @@ class Promo {
   }
 }
 
-class Product {
+export class Product {
   id: string;
   name: string;
   price: string;
   promo: Promo;
 
-  constructor(id: string, name: string, price: string, promo: Promo) {
+  constructor(id: string, name: string, price: string, promo?: Promo) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.promo = promo;
+    this.promo = promo ? promo : new Promo(false, null, '');
   }
 }
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterModule],
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent {
   products: Product[] = [];
 
-  constructor() {
+  constructor(private cartService: CartService) {
     this.products = [
       new Product('1', 'T-shirt', '19,99€', new Promo(false, null,  '2024-10-15')),
       new Product('2', 'Chemise', '39,99€', new Promo(true, "-25", '2024-10-06')),
@@ -84,8 +87,18 @@ export class CatalogComponent {
       new Product('18', 'Ceinture', '29,99€', new Promo(false, null, '2024-10-15')),
       new Product('19', 'Sacs à main', '89,99€', new Promo(true, '-10', '2024-10-25')),
       new Product('20', 'Vêtements de sport', '69,99€', new Promo(true, '-20', '2024-10-30'))
-    ];
+    ];    
   }
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);  // Ajoute le produit au panier
+    this.removeFromCatalog(product.id);   // Supprime le produit du catalogue
+    alert(`${product.name} a été ajouté au panier !`);  // Message d'alerte (optionnel)
+  }
+
+  removeFromCatalog(productId: string) {
+    this.products = this.products.filter(product => product.id !== productId);
+  }
+
   parsePromotionValue(value: string | null): number {
     // Ne pas enlever le signe '-' pour garder les valeurs négatives
     return value ? parseInt(value.replace('%', ''), 10) : 0;
@@ -103,5 +116,5 @@ export class CatalogComponent {
       return "Les promos reviennent bientôt ma loutre🦦";
     }
     return '';
-  }  
+  }
 }
