@@ -1,1 +1,14 @@
-<app-article></app-article>
+@if (!articles || articles.length === 0) {
+    <h1>Il n'y a aucun article ! :/</h1>
+} 
+@for (article of articles; track $index) {
+    @if (article.isPublished) {
+        <div [ngStyle]="{color: article.likes > 150? 'green' : 'black'}" class="article" [ngStyle]>
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.content }}</p>
+          <img [src]="article.image" alt="{{ article.title }}">
+          <p>Auteur: {{ article.author }}</p> 
+          <p [ngClass]="{'popular-article': article.likes > 100}">Likes: {{ article.likes }}</p>
+        </div>
+    }
+}
