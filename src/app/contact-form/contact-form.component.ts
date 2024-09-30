@@ -22,14 +22,12 @@ submitted = false;
 
 onSubmit(form: NgForm) {
   this.submitted = true;
-  console.log('Formulaire soumis', form); // Debug: pour voir si la soumission est bien détectée
 
   if (form.invalid) {
-    console.log('Formulaire invalide'); // Debug: si le formulaire est invalide
     return;
   }
   form.reset();
-  this.submitted = false; // Réinitialisation après soumission réussie
+  this.submitted = false;
 }
 
 }

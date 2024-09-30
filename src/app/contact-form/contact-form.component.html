@@ -1,10 +1,8 @@
 <form #contactForm="ngForm" #myForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-    >
   <div>Le formulaire est-il soumis ? {{ contactForm.submitted }}</div>
   <div>Le formulaire est-il valide ? {{ contactForm.valid }}</div>
   <div>Le formulaire est-il INvalide ? {{ contactForm.invalid }}</div>
 
-  <!-- Champ Nom -->
   <fieldset>
     <label for="lastname">Nom</label>
     <input
@@ -30,7 +28,6 @@
     }
   </fieldset>
 
-  <!-- Champ Prénom -->
   <fieldset>
     <label for="firstname">Prénom</label>
     <input
@@ -57,7 +54,6 @@
     }
   </fieldset>
 
-  <!-- Champ Email -->
   <fieldset>
     <label for="email">Contact</label>
     <input
@@ -80,7 +76,7 @@
     }
   </fieldset>
 
-  <!-- Champ Contenu du message -->
+
   <fieldset>
     <label for="content">Contenu du message</label>
     <textarea
@@ -104,6 +100,6 @@
     }
   </fieldset>
 
-  <button type="reset">Restaurer</button>
-  <button type="submit">Sauvegarder</button>
+  <button type="reset">Reset</button>
+  <button type="submit">Submit</button>
 </form>
