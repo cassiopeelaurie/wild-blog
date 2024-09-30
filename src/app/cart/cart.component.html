@@ -1,0 +1,13 @@
+<h2>Mon Panier</h2>
+
+<div *ngIf="cartItems.length === 0">Votre panier est vide</div>
+
+<div class="catalog-container">
+  <div *ngFor="let item of cartItems" class="article-card">
+    <h3>{{ item.name }}</h3>
+    <p class="black">{{ item.price }}</p>
+    <button class="button-add" (click)="removeFromCart(item.id)">Supprimer</button>
+  </div>
+</div>
+
+<button *ngIf="cartItems.length > 0" class="button-add" (click)="clearCart()">Vider le panier</button>
