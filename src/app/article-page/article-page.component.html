@@ -1,1 +1,13 @@
-<p>Ceci est le détail de l'article</p>
+<div *ngIf="product; else noProductFound">
+    <h2>Détails de l'article</h2>
+    <p>Id de l'article : {{ product.id }}</p>
+    <p>Nom : {{ product.name }}</p>
+    <p>Prix : {{ product.price }}</p>    
+    <p *ngIf="product?.promo?.hasPromo">Promotion : {{ product.promo.getDisplayValue() }}</p>
+    <p *ngIf="product?.promo && !product.promo.hasPromo">Pas de promotion actuellement</p>
+  </div>
+  
+  <ng-template #noProductFound>
+    <p>Aucun produit trouvé pour cet ID.</p>
+  </ng-template>
+  

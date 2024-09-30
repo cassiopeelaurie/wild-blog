@@ -5,15 +5,16 @@ import { CartComponent } from './cart/cart.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { NgModule } from '@angular/core';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: HomePageComponent,
     },
-    {
-        path: 'catalog',
-        component: CatalogComponent,
+    { 
+        path: 'article/:id', 
+        component: ArticlePageComponent 
     },
     {
         path: 'bonjour',
@@ -24,10 +25,11 @@ export const routes: Routes = [
         component: CartComponent 
     },
     { 
-        path: 'article/:id', 
-        component: ArticlePageComponent 
+        path: '**', 
+        component: NotFoundComponent 
     }
 ];
+
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
