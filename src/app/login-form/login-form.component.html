@@ -1,0 +1,39 @@
+<form #formForm="ngForm" (ngSubmit)="formForm.valid && onSubmit()">
+  <label for="email">Entrez votre adresse mail :</label>
+  <input
+    [(ngModel)]="form.email"
+    name="email"
+    #email="ngModel"
+    id="email"
+    type="email"
+    required
+  />
+  
+  <label for="password">Entrez votre mot de passe :</label>
+  <input
+    [(ngModel)]="form.password"
+    name="password"
+    #password="ngModel"
+    id="password"
+    type="password"
+    required
+    minlength="6"
+  />
+  @if (email.errors) {
+    <div>
+      @if (email.errors['required']) {
+      <span> l'email est requis </span>
+      } 
+    </div>
+    }
+
+@if (password.errors) {
+        <div>
+            @if (password.errors['minlength']) {
+            <span>Mdp min de 6 caractères</span>
+            }
+        </div>
+}
+
+  <button [disabled]="formForm.invalid" type="submit">Valider</button>
+</form>
