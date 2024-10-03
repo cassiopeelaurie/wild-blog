@@ -6,6 +6,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +25,14 @@ export const routes: Routes = [
     { 
         path: 'cart', 
         component: CartComponent 
+    },
+    { 
+        path: 'contact-form', 
+        component: ContactFormComponent
+    },
+    { 
+        path: 'sign-up', 
+        component: SignupFormComponent
     },
     { 
         path: '**', 

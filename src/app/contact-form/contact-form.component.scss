@@ -1,0 +1,58 @@
+/* Style du conteneur */
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Ajuste la largeur selon tes besoins */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Style des inputs */
+input[type="text"],
+input[type="email"],
+input[type="textarea"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s;
+}
+
+/* Effet au focus sur les inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="textarea"]:focus {
+    border-color: #66afe9; /* Couleur au focus */
+    outline: none; /* Supprimer le contour par défaut */
+}
+
+/* Style des boutons */
+button {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Effet au hover sur les boutons */
+button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}
+
+/* Style du bouton de réinitialisation */
+button[type="reset"] {
+    background-color: #dc3545; /* Couleur de fond du bouton reset */
+}
+
+/* Effet au hover sur le bouton de réinitialisation */
+button[type="reset"]:hover {
+    background-color: #c82333; /* Couleur au survol du bouton reset */
+}

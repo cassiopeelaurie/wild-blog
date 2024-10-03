@@ -1,0 +1,137 @@
+<form
+  #loginForm="ngForm"
+  [formGroup]="signUpForm"
+  class="form-container"
+>
+  <div class="inputs-forms">
+    <input
+      required
+      minlength="3"
+      id="lastname"
+      formControlName="lastname"
+      type="text"
+      name="lastname"
+      placeholder="Nom"
+    />
+
+    @if (signUpForm.get('lastname')?.invalid &&
+    signUpForm.get('lastname')?.touched) {
+    <div>
+      @if (signUpForm.get('lastname')?.errors?.['required']) {
+      <span>Le nom d'utilisateur est requis.</span>
+      } @if (signUpForm.get('lastname')?.errors?.['minlength']) {
+      <span>Le nom doit comporter au moins 3 caractères.</span>
+      }
+    </div>
+    }
+
+    <input
+      required
+      minlength="3"
+      id="firstname"
+      formControlName="firstname"
+      type="text"
+      name="firstname"
+      placeholder="Prénom"
+    />
+
+    @if (signUpForm.get('firstname')?.invalid &&
+    signUpForm.get('firstname')?.touched) {
+    <div>
+      @if (signUpForm.get('firstname')?.errors?.['required']) {
+      <span>Le prénom de l'utilisateur est requis.</span>
+      } @if (signUpForm.get('firstname')?.errors?.['minlength']) {
+      <span>Le prénom doit comporter au moins 3 caractères.</span>
+      }
+    </div>
+    }
+
+    <input
+      required
+      id="email"
+      formControlName="email"
+      type="email"
+      name="email"
+      placeholder="Email"
+    />
+
+    @if (signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched) {
+    <div>
+      @if (signUpForm.get('email')?.errors?.['required']) {
+      <span>L'email de l'utilisateur est requis.</span>
+      }
+    </div>
+    }
+    <div formGroupName="passwords">
+      <div>
+        <input
+          required
+          id="password"
+          formControlName="password"
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          minlength="8"
+        />
+        @if (signUpForm.get('passwords.password')?.invalid &&
+        signUpForm.get('passwords.password')?.touched) {
+        <div>
+          @if (signUpForm.get('passwords.password')?.errors?.['required']) {
+          <span>Le mot de passe est requis.</span>
+          } @if
+          (signUpForm.get('passwords.password')?.errors?.['securePassword']) {
+          <span
+            >Le mot de passe doit contenir au moins 12 caractères, avec une
+            majuscule, une minuscule, un chiffre, et un caractère spécial.</span
+          >
+          }
+        </div>
+        }
+      </div>
+      <div></div>
+      <input
+        required
+        formControlName="confirmPassword"
+        id="confirmPassword"
+        type="password"
+        name="confirmPassword"
+        placeholder="Mot de passe"
+      />
+      @if (signUpForm.get('passwords')?.errors?.['passwordsMismatch'] &&
+      signUpForm.get('passwords')?.touched) {
+      <span>Les mots de passe ne correspondent pas.</span>
+      }
+    </div>
+
+    @if (signUpForm.get('password')?.invalid &&
+    signUpForm.get('password')?.touched) {
+    <div>
+      @if (signUpForm.get('password')?.errors?.['required']) {
+      <span>Le mot de passe est requis.</span>
+      } @if (signUpForm.get('password')?.errors?.['securePassword']) {
+      <span
+        >Le mot de passe doit contenir au moins 12 caractères, avec une
+        majuscule, une minuscule, un chiffre, et un caractère spécial.</span
+      >
+      }
+    </div>
+    } @if (signUpForm.get('password')?.invalid &&
+    signUpForm.get('password')?.touched) {
+    <div>
+      @if (signUpForm.get('password')?.errors?.['required']) {
+      <span>Le mdp de l'utilisateur est requis.</span>
+      }
+    </div>
+    } @if (signUpForm.get('confirmPassword')?.invalid &&
+    signUpForm.get('passwordVerification')?.touched) {
+    <div>
+      @if (signUpForm.get('confirmPassword')?.errors?.['required']) {
+      <span>Le mdp de l'utilisateur est requis.</span>
+      }
+    </div>
+    }
+  </div>
+</form>
+<button [disabled]="!signUpForm.valid" class="btn-submit-form" type="submit" (click)="onSubmit()">
+  Validation
+</button>
