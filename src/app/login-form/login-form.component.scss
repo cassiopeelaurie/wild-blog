@@ -1,0 +1,15 @@
+.ng-touched input{
+    border-radius: 14px;
+}
+
+.ng-dirty input{
+    background-color: rgb(118, 118, 118);
+}
+
+.ng-invalid input{
+    border: 1px solid rgb(255, 125, 125);
+}
+
+input {
+    border: none;
+}
