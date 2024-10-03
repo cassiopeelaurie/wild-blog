@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../catalog/catalog.component';
 
@@ -12,6 +12,11 @@ import { Product } from '../catalog/catalog.component';
 })
 export class ArticleComponent {
   @Input() childData: Product | null = null;
+  @Output() dataEmitFromChild: EventEmitter<string> = new EventEmitter<string>();
+
+  triggerOutput() {
+    this.dataEmitFromChild.emit("L'article vient d'être liké");
+  }
 
   article: Article = {
     title: 'Titre de l\'article',

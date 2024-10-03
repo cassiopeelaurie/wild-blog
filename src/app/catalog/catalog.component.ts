@@ -68,6 +68,12 @@ export class Product {
 export class CatalogComponent {
 parentData: Product | null = null;
 
+myProperty: string = '';
+
+onReceiveDataFromChild(valueReceived: string) {
+  this.myProperty = valueReceived;
+}
+
   products: Product[] = [];
 
   constructor(private cartService: CartService, private productService: ProductService, private router: Router) {

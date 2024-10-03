@@ -22,7 +22,8 @@
                 <p>{{ noPromoMessage(product) }}</p>
             }
             <button (click)="addToCart(product)" class="button-add">Ajouter au panier</button>
+            <p>{{myProperty}}</p>
         </div>
     }
 </div>
-<app-article [childData]="parentData"></app-article>
+<app-article [childData]="parentData" (dataEmitFromChild)="onReceiveDataFromChild($event)"></app-article>
