@@ -12,9 +12,7 @@
         <div class="article-card">
             <h1 class="title-product"> {{product.name}} </h1>
             <p class="price-product"> {{product.price}} </p>
-            <a [routerLink]="['/articles', product.id]" class="details-link">
-                Voir Détails
-              </a>
+            <button (click)="navigateTo(product.id)">Voir l'article</button>
             @if (product.promo.hasPromo) {
                 <p [ngClass]="{'green': parsePromotionValue(product.promo.value) < -20, 'black': parsePromotionValue(product.promo.value) >= -20}" class="promo-product">
                     {{ product.promo.getDisplayValue() }}
