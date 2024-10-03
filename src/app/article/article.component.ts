@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../catalog/catalog.component';
 
 @Component({
   selector: 'app-article',
@@ -10,6 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent {
+  @Input() childData: Product | null = null;
+
   article: Article = {
     title: 'Titre de l\'article',
     author: 'John Doe',

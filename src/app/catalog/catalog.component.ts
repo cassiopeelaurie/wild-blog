@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { RouterLink, RouterModule, Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import { ArticleComponent } from "../article/article.component";
 
 
 export class Promo {
@@ -60,21 +61,27 @@ export class Product {
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [CommonModule, RouterLink, RouterModule, ArticleComponent],
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent {
+parentData: Product | null = null;
+
   products: Product[] = [];
 
   constructor(private cartService: CartService, private productService: ProductService, private router: Router) {
-    this.products = this.productService.getProducts();  // Fetch products from the service
+    this.products = this.productService.getProducts();
+
+    if (this.products.length > 0) {
+      this.parentData = this.products[0]; // Récupère le produit à l'index 0
+    }
   } 
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);  // Ajoute le produit au panier
     this.removeFromCatalog(product.id);   // Supprime le produit du catalogue
-    alert(`${product.name} a été ajouté au panier !`);  // Message d'alerte (optionnel)
+    alert(`${product.name} a été ajouté au panier !`); 
   }
 
   removeFromCatalog(productId: string) {

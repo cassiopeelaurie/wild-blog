@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from './catalog/catalog.component'; 
-import { Promo } from './catalog/catalog.component'; // Adjust the path if needed
+import { Promo } from './catalog/catalog.component';
 
 @Injectable({
   providedIn: 'root'

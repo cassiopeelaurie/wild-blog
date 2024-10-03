@@ -14,3 +14,9 @@
     <span>{{article.comment}}</span>
     <input [(ngModel)]="article.comment" type="text" placeholder="Ecrivez un commentaire">
 </div>
+<div *ngIf="childData">
+  <h1>Détails de l'article</h1>
+  <p>ID du produit : {{childData.id}}</p>
+  <p>Nom du produit : {{childData.name}}</p>
+  <p>Prix du produit : {{childData.price}}</p>
+</div>
